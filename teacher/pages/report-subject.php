@@ -1,0 +1,104 @@
+<?php
+if (!isLoggedIn()) echo "<script type='text/javascript'>window.location.href = '?module=login';</script>";;
+
+$api = new Score();
+
+$sch = $api->getSch();
+// $teacher = $api->getTeacher();
+
+?>
+
+
+<h1 class="page-header">ລາຍງານ<small>ລາຍວີຊາ</small></h1>
+<!-- end page-header -->
+<!-- begin row -->
+<div class="row">
+    <!-- begin col-12 -->
+    <div class="col-md-12">
+        <!-- begin result-container -->
+        <div class="result-container">
+
+            <div class="d-block d-md-flex align-items-center mb-3">
+                <!-- begin filter -->
+                <div class="d-flex">
+                    <!-- begin dropdown -->
+                    <div class=" mr-2">
+
+                    </div>
+                    <!-- end dropdown -->
+                </div>
+                <!-- end filter -->
+            </div>
+            <div class="panel panel-inverse">
+                <!-- begin panel-heading -->
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        ລາຍງານຂໍ້ມູນລາຍວີຊາຮຽນ
+                    </h4>
+                    <div class="panel-heading-btn">
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                        <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+
+                    </div>
+                </div>
+                <!-- end panel-heading -->
+                <!-- begin panel-body -->
+                <div class="panel-body">
+                    <div class="form-group row">
+
+                        <!-- <div class="col-md-2">
+                            <label for="rp_from_date">From Date</label>
+                            <input type="text" class="form-control gym_datepicker" value="<?php echo date('d/m/Y') ?>" id="rpch_from_date" name="rpch_from_date" autocomplete="off">
+                        </div>
+                        <div class="col-md-2">
+                            <label for="rp_to_date">To Date</label>
+                            <input type="text" class="form-control gym_datepicker" value="<?php echo date('d/m/Y') ?>" id="rpch_to_date" name="rpch_to_date" autocomplete="off">
+                        </div> -->
+
+
+                        <div class="col-md-4">
+                            <label for="rp_to_date">ສົກຮຽນ</label>
+                            <select class="form-control  default-select2" data-placeholder="...ເລືອກສົກຮຽນ..." id="search_sch_id" name="search_sch_id" required>
+                                <option></option>
+                                <?php
+                                foreach ($sch as $sy) {
+
+                                    echo '<option value="' . $sy['sch_id'] . '">' . $sy['sch_name'] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+                    
+
+                        <!-- <div class="col-md-3">
+                            <label for="rp_to_date">code</label>
+                            <input type="text" class="form-control"  id="text_rp_code" name="text_rp_code" autocomplete="off">
+                        </div> -->
+
+                        <div class="col-md-2">
+                            <label for="rp_to_date"> &nbsp;</label>
+                            <button class="btn btn-primary" id="btn_search_subject" style="margin-top: 17px"> <i class="fa fa-search" aria-hidden="true"></i> ຄົ້ນຫາ</button>
+                            <button class="btn btn-danger" id="btn_print_subject" style="margin-top: 17px"> <i class="fa fa-print" aria-hidden="true"></i> ປິຼນ</button>
+                        </div>
+
+
+                    </div><br>
+
+
+                    <div id="display_view_subject_list" class="col-md-12"> </div>
+
+                    
+
+                </div>
+            </div>
+
+
+            <!-- end result-list -->
+
+        </div>
+        <!-- end result-container -->
+    </div>
+    <!-- end col-12 -->
+</div>
+<!-- end row -->

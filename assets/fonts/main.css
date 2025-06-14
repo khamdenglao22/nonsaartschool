@@ -1,0 +1,5 @@
+*:not(i) {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Noto Sans Lao', Roboto, Saysettha OT, Phetsarath OT, Saysettha MX, Helvetica, Arial, sans-serif !important;
+}
